@@ -1,0 +1,142 @@
+doctype html
+| PASTE YOUR HTML CODE HERE
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  // CSS only
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT' crossorigin='anonymous')
+  link(rel='stylesheet' href='../html/style.css')
+  title Sign In
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .container-fluid
+    a.navbar-brand(href='index.html') Urban Farming Initiative
+    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        li.nav-item
+          a.nav-link.active(aria-current='page' href='index.html') Home
+        li.nav-item
+          a.nav-link(href='#') Link
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+            | Account
+          ul.dropdown-menu
+            li
+              a.dropdown-item(href='auth/login.html') Login
+            li
+              a.dropdown-item(href='auth/register.html') Sign Up
+//
+  <div class="container">
+  <form>
+  <h5 class="paragraph text-center my-5">Sign In</h5>
+  <div class="container1 my-5 py-5" id="container1">
+  <div class="container1">
+  <div class="row">
+  <div class="details col-2">Name:</div>
+  <input class="details col-3 m-2">
+  </input>
+  <div class="details col-2"></div>
+  <div class="details col-3 m-2">
+  </div>
+  </div>
+  </div>
+  </div>
+//
+  <div class="container">
+  <section class="vitals">
+  <h5 class="pt-4 pb-2 text-center text-capitalize">Patient Information</h5>
+  <form action="" id="regForm">
+  <div class="row">
+  <div class="form-floating col-3">
+  <input type="text" name="patientName" class="form-control text-center" id="floatingInput" placeholder="Patient Name">
+  <label id="float-lables">Patient Name</label>
+  </div>
+  <div class="form-floating  col-3">
+  <input type="text" name="patientID" class="form-control text-center" id="floatingInput" placeholder="Patient ID Number" >
+  <label id="float-lables">Patient ID Number</label>
+  </div>
+  <div class="form-floating col-3">
+  <input type="date" name="reg-date" class="form-control text-center" id="date-pick-reg" placeholder="">
+  <label id="float-lables-date">Date of Registration</label>
+  </div>
+  <div class="form-floating col-3">
+  <input type="text" name="NinFields" class="form-control text-center " id="nin" placeholder="Nin Number">
+  <label id="float-lables">NIN Number</label>
+  </div>
+  </div>
+  <div class="row">
+  <div class="form-floating col-3">
+  <input type="date" class="form-control text-center" id="date-pick-dob" placeholder="Date of Birth">
+  <label id="float-lables-date">Date of Birth</label>
+  </div>
+  <div class="form-floating col-3" >
+  <div class="list" id="radio-btn">
+  <h6>Gender</h6>
+  <div class="item">
+  <input type="radio"  name="q" class="radio1" value="">
+  <label for="">Male</label>
+  </div>
+  &nbsp;
+  <div class="item">
+  <input type="radio" name="q" class="radio1" value="">
+  <label for="">Female</label>
+  </div>
+  </div>
+  </div>
+  <div class="form-floating col-3">
+  <input type="date" class="form-control text-center" id="date-pick-adm" placeholder="Date of admission">
+  <label id="float-lables-date">Date of admission</label>
+  </div>
+  <div class="form-floating col-3">
+  <select class="form-select text-center" id="select" aria-label="Default select example">
+  <option selected id="try">Select Region</option>
+  <option value="1">Kampala</option>
+  <option value="2">Entebbe</option>
+  <option value="3">Mukono</option>
+  </select>
+  </div>
+  </div>
+  </section>
+.container
+  form#signup.form(name='registration' action='/signIn' method='post')
+    h1 Sign In
+    .form-field
+      label(for='username') Username:
+      input#username(type='text' name='username' autocomplete='off')
+      small
+    .form-field
+      label(for='phonenumber') Phone Number:
+      input#phonenumber(type='text' name='phonenumber' onblur='checkPhone()' autocomplete='off')
+      small
+    .form-field
+      label(for='email') Email:
+      input#email(type='text' name='email' autocomplete='off' onblur='checkEmail()')
+      small
+    .form-field
+      label(for='country') Country:
+      select(name='country' id='')
+        option(value='ug') Uganda
+        option(value='ky') Kenya
+        option(value='rw') Rwanda
+        option(value='tz') Tanzania
+    .form-field
+      label(for='gender') Gender:
+      .radio
+        input#male(type='radio' name='gender' value='male' checked='')
+        span Male
+        input#female(type='radio' name='gender' value='female')
+        span Female
+        input#others(type='radio' name='gender' value='others')
+        span Others
+    .form-field
+      label(for='language') Language:
+      .radio
+        input#eng(type='checkbox' name='english' value='english')
+        span English
+        input#lug(type='checkbox' name='luganda' value='luganda')
+        span Luganda
+    .form-field
+      input.btn(type='submit' value='Sign Up' onclick='checkUserName(); checkFirstName();checkEmail();checkPasswd()')
+script(src='../html/nodejs.js')
